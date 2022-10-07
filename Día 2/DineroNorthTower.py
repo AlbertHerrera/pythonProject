@@ -10,9 +10,7 @@ def monedas_por_segundo(time):
     monedas = time/segundos_por_juego*monedas_por_juego
     return monedas
 
-horas = input("Dime cuantas horas has dormido hoy para calcular el dinero que vas a recibir: ")
-horas = int(horas)
-segundos = horas_a_segundos(horas)
+
+segundos = horas_a_segundos(1)
+segundos = segundos + 180
 print(segundos)
-monedas = monedas_por_segundo(segundos)
-print(f"Tendras aproximadamente {monedas} monedas por {horas} horas de sueño")
