@@ -18,6 +18,7 @@ d = "genial"
 e = " ".join([a,b,c,d])
 print(e)
 
+print("find")
 texto = "Este es el texto de Federico"
 resultado = texto.find("s")
 print(resultado)
@@ -52,4 +53,4 @@ print(resultado)
 # "mala" --> "buena"
 #
 # y muestra en pantalla la frase con ambas palabras modificadas.
-jjjjkkku8uuijhjjksdjijijhhiji
+
