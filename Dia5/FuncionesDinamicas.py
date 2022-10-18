@@ -29,5 +29,32 @@ def todos_positivos(lista):
     return True
 
 
-lista_numeros = [34, 354, 32, 1, -5, -575, -4]
 
+
+
+
+
+
+def suma_menores(lista_numeros):
+    res = 0
+    for n in lista_numeros:
+        if n in range(0, 1000):
+            res = res + n
+        else:
+            pass
+    return res
+lista_numeros = [34, 354, 32, 1, -5, 575, -4]
+print(suma_menores(lista_numeros))
+
+
+
+lista_numeros = [34, 354, 32, 1, -5, 575, -4]
+def cantidad_pares(lista_numeros):
+    res = 0
+    for n in lista_numeros:
+        if n%2==0:
+            res += 1
+        else:
+            pass
+    return res
+print(cantidad_pares(lista_numeros))

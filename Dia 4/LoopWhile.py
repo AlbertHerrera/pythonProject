@@ -41,4 +41,4 @@ while numero >=0:
         print(numero)
     else:
         pass
-    numero -= 1
+    numero -= 1whi
