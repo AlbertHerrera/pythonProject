@@ -10,5 +10,4 @@ mi_dic["país"] = "colombia"
 print(mi_dic)
 
 mi_dict = {"valores_1":{"v1":3,"v2":6},"puntos":{"points1":9,"points2":[10,300,15]}}
-print(mi_dict[])
-print(mi_dict[puntos])
+print(mi_dict["puntos"])
