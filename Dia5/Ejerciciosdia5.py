@@ -15,6 +15,10 @@ print(devolver_distintos(1,2,10))
 
 #Ejercicio2
 def string_ordenar(cadena):
+
+    #Los sets ya quitan los duplicados
+    #for letra in cadena:
+        #mi_set.add(letra)
     lista = list(cadena)
     lista_corta = []
     for n in lista:
@@ -63,8 +67,17 @@ def pillar_al_cero3(*args):
     else:
         return False
 
-
-print(pillar_al_cero3(40,50,0,0,60))
+def ceros_vecinos(*args):
+    contador = 0
+    for num in args:
+        if contador + 1 == len(args):
+            return False
+        elif args[contador]== 0 and args[contador+1] == 0:
+            return True
+        else:
+            contador += 1
+    return False
+print(ceros_vecinos(40,50,0,0,60))
 
 
 def contar_primos(num1):
