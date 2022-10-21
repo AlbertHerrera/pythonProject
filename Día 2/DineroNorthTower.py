@@ -14,3 +14,8 @@ def monedas_por_segundo(time):
 segundos = horas_a_segundos(1)
 segundos = segundos + 180
 print(segundos)
+
+def modulo():
+    print(5%1)
+
+modulo()

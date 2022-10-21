@@ -26,30 +26,65 @@ print(string_ordenar("holaa"))
 
 
 #Ejercicio3
-def pillar_al_cero(*args):
-    for arg in args:
-        index = args.index(arg)
-        index_anterior = index - 1
+# def pillar_al_cero(*args):
+#     for arg in args:
+#         index = args.index(arg)
+#         index_anterior = index - 1
+#
+#         print(f"Este index es {index} con un valor de {arg} y el index anterior es {index_anterior} con un valor de {args[index_anterior]}")
+#
+#
+#         if arg == 0:
+#             if args[(args.index(arg))-1] == 0:
+#                 return True
+#         else:
+#             pass
+#     return False
+#
+#
+# print(pillar_al_cero(40,50,0,0,60))
+#
+# def pillar_al_cero2(*args):
+#     comprobar = {}
+#     for arg in args:
+#         print(type(args.index(arg)))
+#         comprobar[args.index(arg)] = arg
+#     print(comprobar)
+#     return False
+#
+#
+# print(pillar_al_cero2(40,50,0,0,60))
 
-        print(f"Este index es {index} con un valor de {arg} y el index anterior es {index_anterior} con un valor de {args[index_anterior]}")
+
+def pillar_al_cero3(*args):
+    cadena = str(args)
+    if "0, 0," in cadena:
+        return True
+    else:
+        return False
 
 
-        if arg == 0:
-            if args[(args.index(arg))-1] == 0:
-                return True
-        else:
-            pass
-    return False
+print(pillar_al_cero3(40,50,0,0,60))
 
 
-print(pillar_al_cero(40,50,0,0,60))
+def contar_primos(num1):
+    contador_primo = 2
+    lista_primos = []
+    while contador_primo < num1:
+            contador2 = 1
+            regla = 0
+            while contador2 <= contador_primo:
+                if contador_primo % contador2 == 0:
+                    regla +=1
+                    contador2 +=1
+                else:
+                    contador2 +=1
+            if regla > 2:
+                contador_primo +=1
+            else:
+                lista_primos.append(contador_primo)
+                contador_primo +=1
+    return lista_primos
 
-def pillar_al_cero2(*args):
-    comprobar = {}
-    for arg in args:
-        comprobar[str(args.index)] = arg
-    print(comprobar)
-    return False
 
-
-print(pillar_al_cero2(40,50,0,0,60))
+print(contar_primos(5000))
