@@ -11,3 +11,9 @@ print(mi_dic)
 
 mi_dict = {"valores_1":{"v1":3,"v2":6},"puntos":{"points1":9,"points2":[10,300,15]}}
 print(mi_dict["puntos"])
+
+
+otro_dic = {"A":'letra'}
+print(f"Mi otro dic: {otro_dic['A']}")
+for k,v in otro_dic.items():
+    print(f"Mi otro dic: {k}, {v}")
