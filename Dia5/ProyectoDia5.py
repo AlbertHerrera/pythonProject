@@ -89,7 +89,7 @@ print(f"Hemos elegido una palabra secreta al azar, tienes {vidas} vidas para enc
 
 while vidas > 0 and ganador == 0:
     print(resultado_actual(letras_adivinadas, palabra_secreta))
-    print(palabra_secreta)
+    #print(palabra_secreta)
     answer = siguiente_turno(jugador, vidas)
 
     for k, v in answer.items():

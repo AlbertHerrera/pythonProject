@@ -41,4 +41,10 @@ while numero >=0:
         print(numero)
     else:
         pass
-    numero -= 1whi
+    numero -= 1
+
+a = [1,2,3]
+while 12 not in a:
+    a.append(len(a)+1)
+
+print(a)

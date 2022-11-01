@@ -1,4 +1,4 @@
-mi_archivo = open('prueba.txt')
+remi_archivo = open('prueba.txt')
 print(mi_archivo.read())
 mi_archivo.close()
 mi_archivo = open('prueba.txt')
