@@ -1,5 +1,7 @@
+from importlib.resources import path
 from pathlib import Path
 from os import system
+import os
 def bienvenida():
     print("*"*50)
     nombre = input("Bienvenido a este gestor de recetas, \nCual es su nombre?\n")
@@ -8,12 +10,13 @@ def bienvenida():
     return nombre, edad
 
 def directorio_base():
-    base = Path("C:/Users/Usuario/pythonProject/Día 6/Recetas")
-    return base
-
-def total_recetas(base):
+    home = os.getcwd()
+    comp = Path(home, "Día 6/Recetas")
+    rel = Path("Día 6/Recetas")
+    return comp, rel
+def total_recetas(comp):
     recetas = []
-    for txt in base.glob("**/*.txt"):
+    for txt in comp.glob("**/*.txt"):
         recetas.append(txt)
     return len(recetas)
 
@@ -21,10 +24,11 @@ def leer_receta():
     #que categoria eliges
     # que receta quiere leer
     system('cls')
-    base = directorio_base()
+    comp, rel = directorio_base()
+
     dirs = []
-    for dir in base.glob("*"):
-        dirs.append(dir)
+    for dir in comp.glob("*"):
+        dirs.append(dir.name)
     print("*" * 50)
     print(f"Las categorias actuales són: \n")
     print(f"{dirs}")
@@ -33,25 +37,43 @@ def leer_receta():
     while categoria not in dirs:
         categoria = input(f"Porfavor elige una categoria valida:")
         categoria = categoria.capitalize()
-    path_recetas = base / categoria
+    path_recetas = comp / categoria
     recetas = []
+    print(path_recetas.name)
     for txt in path_recetas.glob("*"):
-        recetas = recetas.append(txt)
+        recetas.append(txt.stem)
     print(f"Elige una receta de esta lista para leer: \n")
     print(f"{recetas}")
+    receta = ''
     while receta not in recetas:
         receta = input(f"Porfavor elige una receta para leer:")
-        receta = receta.capitalize()
-    leer = open(path_recetas / receta)
-    return leer.read()
+    receta = receta + ".txt"
+    receta = path_recetas / receta
+    
+    return receta
 
 def crear_receta():
     #que categoria eliges
     #nombre y contenido
     return "crear_receta"
 
-def crear_categoria():
+def crear_categoria(carpeta):
     #Que nombre de categoria
+    system('cls')
+    print(f"Creando categoria: {carpeta} \n")
+    comp, rel = directorio_base()
+    ruta = comp/carpeta
+    if os.path.exists(ruta) == False:
+        os.mkdir(ruta)
+    else:
+        print("Lo sentimos, la carpeta que intentas crear ya existe")
+    total = total_recetas(comp)
+    print(f"Actualmente las recetas se encuentran en: {rel} \nHay un total de {total} recetas")
+    print("*" * 50)  
+
+    
+
+
     return "crear_categoria"
 
 def eliminar_receta():
@@ -69,16 +91,15 @@ def finalizar_programa():
 siguiente = ''
 num = ["1","2","3","4","5","6"]
 election = "1"
-
 while siguiente != 'n':
     #nombre, edad = bienvenida()
     nombre = "Albert"
     edad = 26
     print("*" * 50)
     print(f"Hola {nombre}, estas en mi gestor de recetas!")
-    directorio = directorio_base()
-    total = total_recetas(directorio)
-    print(f"Actualmente las recetas se encuentran en: {directorio} \nHay un total de {total} recetas")
+    comp,rel = directorio_base()
+    total = total_recetas(comp)
+    print(f"Actualmente las recetas se encuentran en: {rel} \nHay un total de {total} recetas")
     print("*" * 50)
     siguiente = input("Escribe n para continuar: ")
     system('cls')
@@ -97,11 +118,20 @@ while siguiente != 'n':
             system('cls')
             match election:
                 case "1":
-                    leer_receta()
+                    receta = leer_receta()
+                    system('cls')
+                    receta = open(receta,"r")
+                    print(receta.read())
+                    receta.close()
+                    next = ''
+                    while next != "n":
+                        next = input(f"Porfavor introduce 'n' para continuar")
+                    system('cls')
                 case "2":
                     print(crear_receta())
                 case "3":
-                    print(crear_categoria())
+                    carpeta = input("Porfavor introduce el nombre de la carpeta para continuar:")
+                    categoria = crear_categoria(carpeta)
                 case "4":
                     print(eliminar_receta())
                 case "5":

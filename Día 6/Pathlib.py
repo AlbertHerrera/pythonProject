@@ -1,6 +1,9 @@
 from pathlib import Path, PureWindowsPath
+import os
+
+cwd = os.getcwd()
 #Con pathlib no hace falta abrir y cerrar
-ruta = Path("C:/Users/Usuario/pythonProject/carpetaAlternativa/otra_carpeta/testmetodo2.txt")
+ruta = Path(cwd, "carpetaAlternativa/otra_carpeta/testmetodo2.txt")
 
 
 ruta_windows = PureWindowsPath(ruta)
